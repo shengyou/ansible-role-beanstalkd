@@ -9,6 +9,8 @@
 * Ubuntu 14.04, 16.04
 * CentOS 6, 7
 
+使用時需注意 CentOS 與 Ubuntu 的 beanstalkd config 並不相同，因此如果需要針對 config 做高度的客製，請自行預備 config 並搭配 variables `custom_config_src` 使用。
+
 Requirements
 ------------
 
@@ -21,9 +23,9 @@ Role Variables
 有三個 default variables，可根據實際狀況覆蓋為其他參數。
 
 ```
-BEANSTALKD_LISTEN_ADDR: 127.0.0.1     # 如設為 false 則不限制 listen 的 ip
+BEANSTALKD_LISTEN_ADDR: 0.0.0.0
 BEANSTALKD_LISTEN_PORT: 11300
-BEANSTALKD_EXTRA: "-b /var/lib/beanstalkd"
+BEANSTALKD_BINLOG: "/var/lib/beanstalkd"
 ```
 
 或者你也可以直接用 `custom_config_src:` 完全用你自己的 config 覆蓋 default config。
